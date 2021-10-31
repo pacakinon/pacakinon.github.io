@@ -23,4 +23,46 @@
     <url>/2021/05/31/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E6%88%90%E5%8A%9F/</url>
     <content><![CDATA[]]></content>
   </entry>
+  <entry>
+    <title>carbon的使用</title>
+    <url>/2021/10/31/carbon%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="carbon的使用"><a href="#carbon的使用" class="headerlink" title="carbon的使用"></a>carbon的使用</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> pluckDeep = <span class="function"><span class="params">key</span> =&gt;</span> <span class="function"><span class="params">obj</span> =&gt;</span> key.split(<span class="string">&#x27;.&#x27;</span>).reduce(<span class="function">(<span class="params">accum, key</span>) =&gt;</span> accum[key], obj)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> compose = <span class="function">(<span class="params">...fns</span>) =&gt;</span> <span class="function"><span class="params">res</span> =&gt;</span> fns.reduce(<span class="function">(<span class="params">accum, next</span>) =&gt;</span> next(accum), res)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> unfold = <span class="function">(<span class="params">f, seed</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> go = <span class="function">(<span class="params">f, seed, acc</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> res = f(seed)</span><br><span class="line">    <span class="keyword">return</span> res ? go(f, res[<span class="number">1</span>], acc.concat([res[<span class="number">0</span>]])) : acc</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> go(f, seed, [])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="carbon的使用-1"><a href="#carbon的使用-1" class="headerlink" title="carbon的使用"></a>carbon的使用</h2><p>打开carbon官网在里面粘贴代码导出</p>
+]]></content>
+      <categories>
+        <category>dddd</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo主题配置标签和分类</title>
+    <url>/2021/10/31/hexo%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E6%A0%87%E7%AD%BE%E5%92%8C%E5%88%86%E7%B1%BB/</url>
+    <content><![CDATA[<p>​    好不容易刚创建好博客，但是这个标签页和分享页就困扰了很久，按照网上查的怎么设置标签页还是不行。写一下标签页和分享页怎么设置吧。</p>
+<h2 id="创建标签页和分类页"><a href="#创建标签页和分类页" class="headerlink" title="创建标签页和分类页"></a>创建标签页和分类页</h2><p>在博客根目录 Git Bash Here 分别输入如下代码。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page tags  //创建标签页</span><br><span class="line">hexo new page categories  //创建分类页</span><br></pre></td></tr></table></figure>
+
+<p>根目录下的 source 文件夹会生成 tags 和 categories 文件夹，修改文件夹里 index.md 的内容。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title: 标签</span><br><span class="line">date: 2021-10-30 15:36:50</span><br><span class="line">type: tags</span><br></pre></td></tr></table></figure>
+
+<p>我的问题就是出现在这一步，网上搜到的都是 type: “tags” ,可是这样生成会报错，我尝试着把 “” 去掉还是不行，原来是分号后面要加空格。</p>
+<p>分类页也是如此设置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title: 分类</span><br><span class="line">date: 2021-10-30 15:39:04</span><br><span class="line">type: categories</span><br></pre></td></tr></table></figure>
+
+<p>设置完就可以给文章设置标签和分类了</p>
+<p>创建的文章在根目录source文件夹的_posts文件夹里，打开文件修改头部的 tags 和 categories </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title: hexo主题配置标签和分类</span><br><span class="line">date: 2021-10-31 16:48:33</span><br><span class="line">tags: 主题问题</span><br><span class="line">categories: hexo主题</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>hexo主题</category>
+      </categories>
+      <tags>
+        <tag>主题问题</tag>
+      </tags>
+  </entry>
 </search>
