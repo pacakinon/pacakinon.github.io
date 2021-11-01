@@ -65,4 +65,28 @@
         <tag>主题问题</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Hexo的自动部署</title>
+    <url>/2021/11/01/Hexo%E7%9A%84%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h1 id="获取密钥"><a href="#获取密钥" class="headerlink" title="获取密钥"></a>获取密钥</h1><p>打开Git  Bash  Here 输入以下命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;注册Github的邮箱&quot;</span><br><span class="line"></span><br><span class="line">如 ssh-keygen -t rsa -C &quot;123456@qq.com&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在电脑C盘的用户文件夹会出现.shh文件夹，id_rsa 是私钥文件，id_rsa.pub 是公钥文件</p>
+<h1 id="配置密钥"><a href="#配置密钥" class="headerlink" title="配置密钥"></a>配置密钥</h1><p>打开自己的GitHub，右上角头像找到Settings,在左侧找到 SSH and GPG keys，用记事本方式打开刚刚的 公钥文件  id_rsa.pub，将里面的内容全部复制到 Key 中，Title可以不填。</p>
+<h1 id="配置私钥"><a href="#配置私钥" class="headerlink" title="配置私钥"></a>配置私钥</h1><p>打开存放hexo源文件的私有仓库，上方找到Settings，左方找到Secrets,将私钥文件 id_rsa的内容全部复制到Value, 名字写 HEXO_DEPLOY_PRIVATE_KEY 。</p>
+<h2 id="添加-Actions"><a href="#添加-Actions" class="headerlink" title="添加 Actions"></a>添加 Actions</h2><p>在私有仓库中选择Actions，点击set up a workflow yourself,复制以下内容覆盖，然后点击Start commit，点击commit new file</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># workflow name</span><br><span class="line">name: Hexo Blog CI</span><br><span class="line"></span><br><span class="line"># master branch on push, auto run</span><br><span class="line">on: </span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master</span><br><span class="line">      </span><br><span class="line">jobs:</span><br><span class="line">  build: </span><br><span class="line">    runs-on: ubuntu-latest </span><br><span class="line">        </span><br><span class="line">    steps:</span><br><span class="line">    # check it to your workflow can access it</span><br><span class="line">    # from: https://github.com/actions/checkout</span><br><span class="line">    - name: Checkout Repository master branch</span><br><span class="line">      uses: actions/checkout@master </span><br><span class="line">      </span><br><span class="line">    # from: https://github.com/actions/setup-node  </span><br><span class="line">    - name: Setup Node.js 10.x </span><br><span class="line">      uses: actions/setup-node@master</span><br><span class="line">      with:</span><br><span class="line">        node-version: &quot;10.x&quot;</span><br><span class="line">    </span><br><span class="line">    - name: Setup Hexo Dependencies</span><br><span class="line">      run: |</span><br><span class="line">        npm install hexo-cli -g</span><br><span class="line">        npm install</span><br><span class="line">    </span><br><span class="line">    - name: Setup Deploy Private Key</span><br><span class="line">      env:</span><br><span class="line">        HEXO_DEPLOY_PRIVATE_KEY: $&#123;&#123; secrets.HEXO_DEPLOY_PRIVATE_KEY &#125;&#125;</span><br><span class="line">      run: |</span><br><span class="line">        mkdir -p ~/.ssh/</span><br><span class="line">        echo &quot;$HEXO_DEPLOY_PRIVATE_KEY&quot; &gt; ~/.ssh/id_rsa </span><br><span class="line">        chmod 600 ~/.ssh/id_rsa</span><br><span class="line">        ssh-keyscan github.com &gt;&gt; ~/.ssh/known_hosts</span><br><span class="line">        </span><br><span class="line">    - name: Setup Git Infomation</span><br><span class="line">      run: | </span><br><span class="line">        git config --global user.name &#x27;名字&#x27; </span><br><span class="line">        git config --global user.email &#x27;邮件&#x27;</span><br><span class="line">    - name: Deploy Hexo </span><br><span class="line">      run: |</span><br><span class="line">        hexo clean</span><br><span class="line">        hexo generate </span><br><span class="line">        hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>最后在博客根目录输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+<p>就可以自动部署了。</p>
+]]></content>
+      <categories>
+        <category>hexo主题</category>
+      </categories>
+      <tags>
+        <tag>主题问题</tag>
+      </tags>
+  </entry>
 </search>
