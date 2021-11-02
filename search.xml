@@ -80,7 +80,7 @@
 <p>最后在博客根目录输入</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
 
-<p>就可以自动部署了。</p>
+<p>就可以自动部署了。之后可以输入 git push 就可以一键部署了。</p>
 ]]></content>
       <categories>
         <category>hexo主题</category>
