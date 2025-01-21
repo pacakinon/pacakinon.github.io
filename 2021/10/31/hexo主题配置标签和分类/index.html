@@ -1,0 +1,158 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>hexo主题配置标签和分类 | pacakinon帆帆帆帆</title><meta name="keywords" content="主题问题"><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="​    好不容易刚创建好博客，但是这个标签页和分享页就困扰了很久，按照网上查的怎么设置标签页还是不行。写一下标签页和分享页怎么设置吧。 创建标签页和分类页在博客根目录 Git Bash Here 分别输入如下代码。 12hexo new page tags  &#x2F;&#x2F;创建标签页hexo new page categories  &#x2F;&#x2F;创建分类页  根目录下的 source 文件夹会生成 tags 和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo主题配置标签和分类">
+<meta property="og:url" content="http://example.com/2021/10/31/hexo%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E6%A0%87%E7%AD%BE%E5%92%8C%E5%88%86%E7%B1%BB/index.html">
+<meta property="og:site_name" content="pacakinon帆帆帆帆">
+<meta property="og:description" content="​    好不容易刚创建好博客，但是这个标签页和分享页就困扰了很久，按照网上查的怎么设置标签页还是不行。写一下标签页和分享页怎么设置吧。 创建标签页和分类页在博客根目录 Git Bash Here 分别输入如下代码。 12hexo new page tags  &#x2F;&#x2F;创建标签页hexo new page categories  &#x2F;&#x2F;创建分类页  根目录下的 source 文件夹会生成 tags 和">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-10-31T16:48:33.000Z">
+<meta property="article:modified_time" content="2025-01-21T11:53:18.107Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="主题问题">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/10/31/hexo%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E6%A0%87%E7%AD%BE%E5%92%8C%E5%88%86%E7%B1%BB/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'hexo主题配置标签和分类',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-01-21 11:53:18'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">pacakinon帆帆帆帆</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">hexo主题配置标签和分类</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-10-31T16:48:33.000Z" title="发表于 2021-10-31 16:48:33">2021-10-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-21T11:53:18.107Z" title="更新于 2025-01-21 11:53:18">2025-01-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/hexo%E4%B8%BB%E9%A2%98/">hexo主题</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="hexo主题配置标签和分类"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><p>​    好不容易刚创建好博客，但是这个标签页和分享页就困扰了很久，按照网上查的怎么设置标签页还是不行。写一下标签页和分享页怎么设置吧。</p>
+<h2 id="创建标签页和分类页"><a href="#创建标签页和分类页" class="headerlink" title="创建标签页和分类页"></a>创建标签页和分类页</h2><p>在博客根目录 Git Bash Here 分别输入如下代码。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags  //创建标签页</span><br><span class="line">hexo new page categories  //创建分类页</span><br></pre></td></tr></table></figure>
+
+<p>根目录下的 source 文件夹会生成 tags 和 categories 文件夹，修改文件夹里 index.md 的内容。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: 标签</span><br><span class="line">date: 2021-10-30 15:36:50</span><br><span class="line">type: tags</span><br></pre></td></tr></table></figure>
+
+<p>我的问题就是出现在这一步，网上搜到的都是 type: “tags” ,可是这样生成会报错，我尝试着把 “” 去掉还是不行，原来是分号后面要加空格。</p>
+<p>分类页也是如此设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: 分类</span><br><span class="line">date: 2021-10-30 15:39:04</span><br><span class="line">type: categories</span><br></pre></td></tr></table></figure>
+
+<p>设置完就可以给文章设置标签和分类了</p>
+<p>创建的文章在根目录source文件夹的_posts文件夹里，打开文件修改头部的 tags 和 categories </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: hexo主题配置标签和分类</span><br><span class="line">date: 2021-10-31 16:48:33</span><br><span class="line">tags: 主题问题</span><br><span class="line">categories: hexo主题</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/10/31/hexo%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E6%A0%87%E7%AD%BE%E5%92%8C%E5%88%86%E7%B1%BB/">http://example.com/2021/10/31/hexo%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E6%A0%87%E7%AD%BE%E5%92%8C%E5%88%86%E7%B1%BB/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">pacakinon帆帆帆帆</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%B8%BB%E9%A2%98%E9%97%AE%E9%A2%98/">主题问题</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/11/01/Hexo%E7%9A%84%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Hexo的自动部署</div></div></a></div><div class="next-post pull-right"><a href="/2021/10/31/carbon%E7%9A%84%E4%BD%BF%E7%94%A8/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">carbon的使用</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/11/01/Hexo的自动部署/" title="Hexo的自动部署"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-01</div><div class="title">Hexo的自动部署</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="/s" target="_blank" title=""><i></i></a><a class="social-icon" href="/e" target="_blank" title=""><i class="1"></i></a><a class="social-icon" href="/a" target="_blank" title=""><i class="2"></i></a><a class="social-icon" href="/r" target="_blank" title=""><i class="3"></i></a><a class="social-icon" href="/c" target="_blank" title=""><i class="4"></i></a><a class="social-icon" href="/h" target="_blank" title=""><i class="5"></i></a><a class="social-icon" href="/" target="_blank" title=""><i class="6"></i></a><a class="social-icon" href="/(" target="_blank" title=""><i class="7"></i></a><a class="social-icon" href="/%E6%90%9C" target="_blank" title=""><i class="8"></i></a><a class="social-icon" href="/%E7%B4%A2" target="_blank" title=""><i class="9"></i></a><a class="social-icon" href="/)" target="_blank" title=""><i class="10"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%A0%87%E7%AD%BE%E9%A1%B5%E5%92%8C%E5%88%86%E7%B1%BB%E9%A1%B5"><span class="toc-number">1.</span> <span class="toc-text">创建标签页和分类页</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/01/21/hello-world/" title="Hello World"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2025/01/21/hello-world/" title="Hello World">Hello World</a><time datetime="2025-01-21T11:53:18.107Z" title="发表于 2025-01-21 11:53:18">2025-01-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/01/Hexo%E7%9A%84%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" title="Hexo的自动部署"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo的自动部署"/></a><div class="content"><a class="title" href="/2021/11/01/Hexo%E7%9A%84%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" title="Hexo的自动部署">Hexo的自动部署</a><time datetime="2021-11-01T21:30:22.000Z" title="发表于 2021-11-01 21:30:22">2021-11-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/31/hexo%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E6%A0%87%E7%AD%BE%E5%92%8C%E5%88%86%E7%B1%BB/" title="hexo主题配置标签和分类"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo主题配置标签和分类"/></a><div class="content"><a class="title" href="/2021/10/31/hexo%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E6%A0%87%E7%AD%BE%E5%92%8C%E5%88%86%E7%B1%BB/" title="hexo主题配置标签和分类">hexo主题配置标签和分类</a><time datetime="2021-10-31T16:48:33.000Z" title="发表于 2021-10-31 16:48:33">2021-10-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/31/carbon%E7%9A%84%E4%BD%BF%E7%94%A8/" title="carbon的使用"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="carbon的使用"/></a><div class="content"><a class="title" href="/2021/10/31/carbon%E7%9A%84%E4%BD%BF%E7%94%A8/" title="carbon的使用">carbon的使用</a><time datetime="2021-10-31T11:55:18.000Z" title="发表于 2021-10-31 11:55:18">2021-10-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/05/31/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E6%88%90%E5%8A%9F/" title="我的博客部署成功"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="我的博客部署成功"/></a><div class="content"><a class="title" href="/2021/05/31/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E6%88%90%E5%8A%9F/" title="我的博客部署成功">我的博客部署成功</a><time datetime="2021-05-31T00:27:36.000Z" title="发表于 2021-05-31 00:27:36">2021-05-31</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By John Doe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

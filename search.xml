@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hexo的自动部署</title>
+    <url>/2021/11/01/Hexo%E7%9A%84%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h1 id="获取密钥"><a href="#获取密钥" class="headerlink" title="获取密钥"></a>获取密钥</h1><p>打开Git  Bash  Here 输入以下命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;注册Github的邮箱&quot;</span><br><span class="line"></span><br><span class="line">如 ssh-keygen -t rsa -C &quot;123456@qq.com&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在电脑C盘的用户文件夹会出现.shh文件夹，id_rsa 是私钥文件，id_rsa.pub 是公钥文件</p>
+<h1 id="配置密钥"><a href="#配置密钥" class="headerlink" title="配置密钥"></a>配置密钥</h1><p>打开自己的GitHub，右上角头像找到Settings,在左侧找到 SSH and GPG keys，用记事本方式打开刚刚的 公钥文件  id_rsa.pub，将里面的内容全部复制到 Key 中，Title可以不填。</p>
+<h1 id="配置私钥"><a href="#配置私钥" class="headerlink" title="配置私钥"></a>配置私钥</h1><p>打开存放hexo源文件的私有仓库，上方找到Settings，左方找到Secrets,将私钥文件 id_rsa的内容全部复制到Value, 名字写 HEXO_DEPLOY_PRIVATE_KEY 。</p>
+<h2 id="添加-Actions"><a href="#添加-Actions" class="headerlink" title="添加 Actions"></a>添加 Actions</h2><p>在私有仓库中选择Actions，点击set up a workflow yourself,复制以下内容覆盖，然后点击Start commit，点击commit new file</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># workflow name</span><br><span class="line">name: Hexo Blog CI</span><br><span class="line"></span><br><span class="line"># master branch on push, auto run</span><br><span class="line">on: </span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master</span><br><span class="line">      </span><br><span class="line">jobs:</span><br><span class="line">  build: </span><br><span class="line">    runs-on: ubuntu-latest </span><br><span class="line">        </span><br><span class="line">    steps:</span><br><span class="line">    # check it to your workflow can access it</span><br><span class="line">    # from: https://github.com/actions/checkout</span><br><span class="line">    - name: Checkout Repository master branch</span><br><span class="line">      uses: actions/checkout@master </span><br><span class="line">      </span><br><span class="line">    # from: https://github.com/actions/setup-node  </span><br><span class="line">    - name: Setup Node.js 10.x </span><br><span class="line">      uses: actions/setup-node@master</span><br><span class="line">      with:</span><br><span class="line">        node-version: &quot;10.x&quot;</span><br><span class="line">    </span><br><span class="line">    - name: Setup Hexo Dependencies</span><br><span class="line">      run: |</span><br><span class="line">        npm install hexo-cli -g</span><br><span class="line">        npm install</span><br><span class="line">    </span><br><span class="line">    - name: Setup Deploy Private Key</span><br><span class="line">      env:</span><br><span class="line">        HEXO_DEPLOY_PRIVATE_KEY: $&#123;&#123; secrets.HEXO_DEPLOY_PRIVATE_KEY &#125;&#125;</span><br><span class="line">      run: |</span><br><span class="line">        mkdir -p ~/.ssh/</span><br><span class="line">        echo &quot;$HEXO_DEPLOY_PRIVATE_KEY&quot; &gt; ~/.ssh/id_rsa </span><br><span class="line">        chmod 600 ~/.ssh/id_rsa</span><br><span class="line">        ssh-keyscan github.com &gt;&gt; ~/.ssh/known_hosts</span><br><span class="line">        </span><br><span class="line">    - name: Setup Git Infomation</span><br><span class="line">      run: | </span><br><span class="line">        git config --global user.name &#x27;名字&#x27; </span><br><span class="line">        git config --global user.email &#x27;邮件&#x27;</span><br><span class="line">    - name: Deploy Hexo </span><br><span class="line">      run: |</span><br><span class="line">        hexo clean</span><br><span class="line">        hexo generate </span><br><span class="line">        hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>最后在博客根目录输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+<p>就可以自动部署了。看看有变化吗</p>
+]]></content>
+      <categories>
+        <category>hexo主题</category>
+      </categories>
+      <tags>
+        <tag>主题问题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>carbon的使用</title>
+    <url>/2021/10/31/carbon%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="carbon的使用"><a href="#carbon的使用" class="headerlink" title="carbon的使用"></a>carbon的使用</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> pluckDeep = <span class="function"><span class="params">key</span> =&gt;</span> <span class="function"><span class="params">obj</span> =&gt;</span> key.split(<span class="string">&#x27;.&#x27;</span>).reduce(<span class="function">(<span class="params">accum, key</span>) =&gt;</span> accum[key], obj)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> compose = <span class="function">(<span class="params">...fns</span>) =&gt;</span> <span class="function"><span class="params">res</span> =&gt;</span> fns.reduce(<span class="function">(<span class="params">accum, next</span>) =&gt;</span> next(accum), res)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> unfold = <span class="function">(<span class="params">f, seed</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> go = <span class="function">(<span class="params">f, seed, acc</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> res = f(seed)</span><br><span class="line">    <span class="keyword">return</span> res ? go(f, res[<span class="number">1</span>], acc.concat([res[<span class="number">0</span>]])) : acc</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> go(f, seed, [])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="carbon的使用-1"><a href="#carbon的使用-1" class="headerlink" title="carbon的使用"></a>carbon的使用</h2><p>打开carbon官网在里面粘贴代码导出</p>
+]]></content>
+      <categories>
+        <category>dddd</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2025/01/21/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>hexo主题配置标签和分类</title>
+    <url>/2021/10/31/hexo%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E6%A0%87%E7%AD%BE%E5%92%8C%E5%88%86%E7%B1%BB/</url>
+    <content><![CDATA[<p>​    好不容易刚创建好博客，但是这个标签页和分享页就困扰了很久，按照网上查的怎么设置标签页还是不行。写一下标签页和分享页怎么设置吧。</p>
+<h2 id="创建标签页和分类页"><a href="#创建标签页和分类页" class="headerlink" title="创建标签页和分类页"></a>创建标签页和分类页</h2><p>在博客根目录 Git Bash Here 分别输入如下代码。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page tags  //创建标签页</span><br><span class="line">hexo new page categories  //创建分类页</span><br></pre></td></tr></table></figure>
+
+<p>根目录下的 source 文件夹会生成 tags 和 categories 文件夹，修改文件夹里 index.md 的内容。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title: 标签</span><br><span class="line">date: 2021-10-30 15:36:50</span><br><span class="line">type: tags</span><br></pre></td></tr></table></figure>
+
+<p>我的问题就是出现在这一步，网上搜到的都是 type: “tags” ,可是这样生成会报错，我尝试着把 “” 去掉还是不行，原来是分号后面要加空格。</p>
+<p>分类页也是如此设置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title: 分类</span><br><span class="line">date: 2021-10-30 15:39:04</span><br><span class="line">type: categories</span><br></pre></td></tr></table></figure>
+
+<p>设置完就可以给文章设置标签和分类了</p>
+<p>创建的文章在根目录source文件夹的_posts文件夹里，打开文件修改头部的 tags 和 categories </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title: hexo主题配置标签和分类</span><br><span class="line">date: 2021-10-31 16:48:33</span><br><span class="line">tags: 主题问题</span><br><span class="line">categories: hexo主题</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>hexo主题</category>
+      </categories>
+      <tags>
+        <tag>主题问题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的博客部署成功</title>
+    <url>/2021/05/31/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E6%88%90%E5%8A%9F/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+</search>
